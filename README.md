@@ -7,7 +7,7 @@ So it's called **KFDynaSLAM**.
 
 This is a part of the code of my undergraduate project in Shanghai Jiaotong University,"Improvement of Indoor Positioning Technology Based on SLAM--Research on the Problem of Dynamic Point Culling" . 
 
-**The other part is dedicated to the using auxiliary information of the camera in the environment to help with dynamic point removal,called [EnvDynaSLAM]**. If there is any error, please pull issues or contact mingsjtu@163.com
+**The other part is dedicated to the using auxiliary information of the camera in the environment to help with dynamic point removal,called [EnvDynaSLAM](https://github.com/mingsjtu/EnvDynaSLAM)**. If there is any error, please pull issues or contact mingsjtu@163.com
 
 
 KFDynaSLAM是一个为解决SLAM中的动态点去除问题而做的单目SLAM系统。我选用MaskRCNN以辅助动态点的去除，并通过只对关键帧进行语义分割以提升运行速度。
@@ -121,7 +121,7 @@ I use KFDynaSLAM and offlineSLAM(put done mask in `PATH_TO_MASKS` before run SLA
 
 It shows the segment part is very time-costing.
 
-You can find [EnvDynaSLAM]() here, which is another repository of mine. It can cull dynamic points with very short time.
+You can find [EnvDynaSLAM](https://github.com/mingsjtu/EnvDynaSLAM) here, which is another repository of mine. It can cull dynamic points with very short time.
 
 
 ## Acknowledgements
