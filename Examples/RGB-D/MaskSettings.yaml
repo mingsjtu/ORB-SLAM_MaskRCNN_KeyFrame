@@ -1,0 +1,5 @@
+%YAML:1.0
+py_path: "./src/python/"
+module_name: "predictor"
+class_name: "VisualizationDemo"
+get_dyn_seg: "run_on_image"
