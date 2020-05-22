@@ -49,7 +49,7 @@ python src/python/step.py
 Clone this repo:
 ```bash
 git clone https://github.com/mingsjtu/ORB-SLAM_MaskRCNN_KeyFrame.git
-cd DynaSLAMORB-SLAM_MaskRCNN_KeyFrame
+cd ORB-SLAM_MaskRCNN_KeyFrame
 ```
 Change some path in [CMakeLists.txt](CMakeLists.txt) if needed
 Build the project
@@ -59,11 +59,34 @@ chmod +x build.sh
 ./build.sh
 ```
 Change path in [python_predictor](src/python/predictor.py) according to your own model path.
+
+## Prepare Data
+I provide `prepare_data` folder which contains python files to help you prepare data with your own video.
+1. Convert the videos to picture sequence
+
+Change the file path and start time in [video2pic.py](prepare_data/video2pic.py)
+
+
+
+``` python
+video_name="/media/gm/Data/SLAM/self_video/5.16morn/huawei_20200516_081324"# mp4file path without '.mp4
+video_to_image(video_name+".mp4",video_name+"/rgb",8*3600+11*60+50)# start time hour*3600+minute*60+second
+generate_rgbtxt(video_name+"/rgb",video_name+"/rgb.txt")
+
+```
+
+run
+``` bash
+cd prepare_data
+python video2pic.py
+```
+
+You will get a sequnence of pictures and a TXT containing pictures name and timestamps.
  
 
-## Monocular Example on TUM Dataset
+## Monocular Example on TUM Dataset or Your own Dataset
 - Download a sequence from http://vision.in.tum.de/data/datasets/rgbd-dataset/download and uncompress it.
-
+- Or use your own video with `Prepare Date` part above.
 - Execute the following command. Change `TUMX.yaml` to TUM1.yaml,TUM2.yaml or TUM3.yaml for freiburg1, freiburg2 and freiburg3 sequences respectively. Change `PATH_TO_SEQUENCE_FOLDER` to the uncompressed sequence folder. Change `PATH_TO_MASKS` to your own mask path or the mask path you want the Segment module to save result in.
 
 If `PATH_TO_MASKS` is provided, Mask R-CNN is used to segment the potential dynamic content of every frame. These masks are saved in the provided folder `PATH_TO_MASKS`. If this argument is `no_save`, the masks are used but not saved. If it finds the Mask R-CNN computed dynamic masks in `PATH_TO_MASKS`, it uses them but does not compute them again.
